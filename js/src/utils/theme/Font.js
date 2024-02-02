@@ -90,10 +90,12 @@ export default FONT = {
 
   weight: {
     regular: '400',
-    semibold: '700',
+    semibold: '600',
+    bold: '700',
   },
   title: {
     size: {
+      XXXL: 64,
       XXL: 34,
       XL: 28,
       L: 22,

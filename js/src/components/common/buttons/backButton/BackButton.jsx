@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {styles} from './BackButton.style';
-import Icons from '../../../utils/theme/Icons';
+import Icons from '../../../../utils/theme/Icons';
 
 export default BackButton = React.memo(function BackButton(props) {
   const navigation = useNavigation();

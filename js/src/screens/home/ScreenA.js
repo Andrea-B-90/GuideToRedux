@@ -1,24 +1,69 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
 import {navigate} from '../../utils/hooks/useNavigationRef';
+import {styles} from './ScreenA.style';
+import ActionButton from '../../components/common/buttons/actionButton/ActionButton';
+import ButtonsSection from '../../components/screens/buttonsSection/ButtonsSection';
 
 export default ScreenA = () => {
-  const [inputData, setInputData] = useState('');
+  const [value, setValue] = useState(0);
 
-  const handleButtonPress = () => {
-    // Navigate to ScreenB
+  const incrementValue = () => {
+    if (value < 10) {
+      setValue(value + 1);
+    }
+  };
+
+  const decrementValue = () => {
+    if (value > 0) {
+      setValue(value - 1);
+    }
+  };
+
+  const handleResetPress = () => {
+    setValue(0);
+  };
+
+  const handleSubmitPress = () => {
+    // TODO: implement save value in Redux
+  };
+
+  const handleNextPress = () => {
     navigate('ScreenB');
   };
 
   return (
-    <View>
-      <Text>Screen A</Text>
-      <TextInput
-        placeholder="Enter data"
-        value={inputData}
-        onChangeText={text => setInputData(text)}
+    <View style={styles.mainContainer}>
+      <StatusBar
+        backgroundColor={styles.mainContainer.backgroundColor}
+        barStyle="light-content"
       />
-      <Button title="Submit" onPress={handleButtonPress} />
+      {/* Increment - Decrement */}
+      <View style={styles.card}>
+        <Text style={styles.text}>{value}</Text>
+        <ButtonsSection
+          type="operation"
+          leftTitle="-"
+          rightTitle="+"
+          onResetPress={decrementValue}
+          onSubmitPress={incrementValue}
+        />
+      </View>
+      <View style={styles.footerContainer}>
+        {/* Reset - Submit */}
+        <View style={styles.actionsContainer}>
+          <ButtonsSection
+            leftTitle="Reset"
+            rightTitle="Submit"
+            onResetPress={handleResetPress}
+            onSubmitPress={handleSubmitPress}
+          />
+        </View>
+        {/* Next */}
+        <View style={styles.actionsContainer}>
+          <ActionButton title="Next" onPress={handleNextPress} />
+        </View>
+      </View>
     </View>
   );
 };
