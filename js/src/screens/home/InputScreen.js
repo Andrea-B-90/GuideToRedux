@@ -4,9 +4,11 @@ import {navigate} from '../../utils/hooks/useNavigationRef';
 import {styles} from './InputScreen.style';
 import ActionButton from '../../components/common/buttons/actionButton/ActionButton';
 import ButtonsSection from '../../components/screens/buttonsSection/ButtonsSection';
+import {useDispatch} from 'react-redux';
 
 export default InputScreen = () => {
   const [value, setValue] = useState(0);
+  const dispatch = useDispatch();
 
   const incrementValue = () => {
     if (value < 10) {
@@ -25,7 +27,7 @@ export default InputScreen = () => {
   };
 
   const handleSubmitPress = () => {
-    // TODO: implement save value in Redux
+    dispatch({type: 'SUBMIT_DATA', data: value});
   };
 
   const handleNextPress = () => {

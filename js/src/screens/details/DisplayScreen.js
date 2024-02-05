@@ -4,18 +4,22 @@ import {styles} from './DisplayScreen.style';
 import ButtonsSection from '../../components/screens/buttonsSection/ButtonsSection';
 import Colors from '../../utils/theme/Colors';
 import Font from '../../utils/theme/Font';
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigationRef} from '../../utils/hooks/useNavigationRef';
+import {setCounterValue} from '../../redux/slices/counterSlice';
 
 export default DisplayScreen = () => {
-  const [showData, setShowData] = useState(null);
-
-  const data = 0;
+  const [showData, setShowData] = useState(false);
+  const counter = useSelector(state => state.counter.value);
+  const dispatch = useDispatch();
 
   const handleResetPress = () => {
-    // TODO: implement reset value in Redux
+    dispatch(setCounterValue(0));
+    useNavigationRef.goBack();
   };
 
   const handleRetrievePress = () => {
-    // TODO: implement get value from Redux
+    setShowData(true);
   };
 
   return (
@@ -23,8 +27,8 @@ export default DisplayScreen = () => {
       {/* Data Value */}
       <View style={styles.card}>
         <Text style={styles.text}>Counter value:</Text>
-        {showData ? (
-          <Text style={styles.dataValue}>{data}</Text>
+        {showData === true ? (
+          <Text style={styles.dataValue}>{counter}</Text>
         ) : (
           <Text style={styles.text}>
             Press{' '}

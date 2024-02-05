@@ -1,24 +1,13 @@
-import {put, takeLatest, call} from 'redux-saga/effects';
-
-// Simulate an API call or async operation
-const saveDataToServer = async data => {
-  // Simulate a delay
-  return await new Promise(resolve => {
-    setTimeout(() => {
-      resolve(data);
-    }, 1000);
-  });
-};
+import {put, takeLatest} from 'redux-saga/effects';
+import {setCounterValue} from '../slices/counterSlice';
 
 function* submitDataSaga(action) {
   try {
-    // Call your API or async function to save data
-    const data = yield call(saveDataToServer, action.data);
-
-    // Dispatch an action to update the Redux state with the saved data
-    yield put({type: 'SUBMIT_DATA', data});
+    // Call your API or async function to save data (if needed)
+    // Simulate a delay and then dispatch the slice's action
+    yield new Promise(resolve => setTimeout(resolve, 1000));
+    yield put(setCounterValue(action.data));
   } catch (error) {
-    // Handle any errors here
     console.log(error);
   }
 }
