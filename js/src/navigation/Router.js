@@ -5,8 +5,8 @@ import {useNavigationRef} from '../utils/hooks/useNavigationRef';
 import {Platform} from 'react-native';
 import Colors from '../utils/theme/Colors';
 import BackButton from '../components/common/buttons/backButton/BackButton';
-import ScreenA from '../screens/home/ScreenA';
-import ScreenB from '../screens/details/ScreenB';
+import InputScreen from '../screens/home/InputScreen';
+import DisplayScreen from '../screens/details/DisplayScreen';
 
 export default Router = () => {
   const Stack = createNativeStackNavigator();
@@ -15,13 +15,13 @@ export default Router = () => {
     <NavigationContainer ref={useNavigationRef} theme={DarkTheme}>
       <Stack.Navigator
         screenOptions={{
-          presentation: Platform.OS === 'android' && 'transparentModal',
+          presentation: Platform.OS === 'android' ? 'transparentModal' : 'card',
         }}>
         <Stack.Screen
-          name="ScreenA"
-          component={ScreenA}
+          name="InputScreen"
+          component={InputScreen}
           options={{
-            headerTitle: 'Screen A',
+            headerTitle: 'Input Screen',
             headerStyle: {
               backgroundColor: Colors.background,
             },
@@ -29,15 +29,17 @@ export default Router = () => {
           }}
         />
         <Stack.Screen
-          name="ScreenB"
-          component={ScreenB}
+          name="DisplayScreen"
+          component={DisplayScreen}
           options={{
             headerTitle: '',
             headerStyle: {
               backgroundColor: Colors.background,
             },
             headerShadowVisible: false,
-            headerLeft: props => <BackButton {...props} title={'Screen B'} />,
+            headerLeft: props => (
+              <BackButton {...props} title={'Display Screen'} />
+            ),
           }}
         />
       </Stack.Navigator>

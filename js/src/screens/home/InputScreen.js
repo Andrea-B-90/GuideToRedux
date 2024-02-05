@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, StatusBar} from 'react-native';
 import {navigate} from '../../utils/hooks/useNavigationRef';
-import {styles} from './ScreenA.style';
+import {styles} from './InputScreen.style';
 import ActionButton from '../../components/common/buttons/actionButton/ActionButton';
 import ButtonsSection from '../../components/screens/buttonsSection/ButtonsSection';
 
-export default ScreenA = () => {
+export default InputScreen = () => {
   const [value, setValue] = useState(0);
 
   const incrementValue = () => {
@@ -29,7 +29,7 @@ export default ScreenA = () => {
   };
 
   const handleNextPress = () => {
-    navigate('ScreenB');
+    navigate('DisplayScreen');
   };
 
   return (

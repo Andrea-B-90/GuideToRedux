@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {styles} from './ScreenB.style';
+import {styles} from './DisplayScreen.style';
 import ButtonsSection from '../../components/screens/buttonsSection/ButtonsSection';
 import Colors from '../../utils/theme/Colors';
 import Font from '../../utils/theme/Font';
 
-export default ScreenB = () => {
+export default DisplayScreen = () => {
   const [showData, setShowData] = useState(null);
 
   const data = 0;
@@ -22,7 +22,7 @@ export default ScreenB = () => {
     <View style={styles.container}>
       {/* Data Value */}
       <View style={styles.card}>
-        <Text style={styles.text}>Data:</Text>
+        <Text style={styles.text}>Value:</Text>
         {showData ? (
           <Text style={styles.dataValue}>{data}</Text>
         ) : (
@@ -38,7 +38,7 @@ export default ScreenB = () => {
               ]}>
               'Retrieve'
             </Text>{' '}
-            to get the data.
+            to get the value.
           </Text>
         )}
       </View>
