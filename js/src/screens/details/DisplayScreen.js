@@ -22,7 +22,7 @@ export default DisplayScreen = () => {
     <View style={styles.container}>
       {/* Data Value */}
       <View style={styles.card}>
-        <Text style={styles.text}>Value:</Text>
+        <Text style={styles.text}>Counter value:</Text>
         {showData ? (
           <Text style={styles.dataValue}>{data}</Text>
         ) : (
@@ -38,7 +38,7 @@ export default DisplayScreen = () => {
               ]}>
               'Retrieve'
             </Text>{' '}
-            to get the value.
+            to get the counter value.
           </Text>
         )}
       </View>
