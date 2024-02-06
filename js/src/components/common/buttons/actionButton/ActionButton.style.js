@@ -10,14 +10,13 @@ export const styles = StyleSheet.create({
   textContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.gris2,
+    backgroundColor: Colors.actionBackground,
     borderRadius: 24,
     padding: 12,
   },
   text: {
-    fontSize: Font.title.size.S,
+    fontSize: Font.text.size.S,
     fontWeight: Font.weight.regular,
-    color: Colors.gris5,
-    marginHorizontal: 12,
+    color: Colors.actionText,
   },
 });

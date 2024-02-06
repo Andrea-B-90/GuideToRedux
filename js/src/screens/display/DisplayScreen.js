@@ -5,7 +5,6 @@ import ButtonsSection from '../../components/screens/buttonsSection/ButtonsSecti
 import Colors from '../../utils/theme/Colors';
 import Font from '../../utils/theme/Font';
 import {useDispatch, useSelector} from 'react-redux';
-import {useNavigationRef} from '../../utils/hooks/useNavigationRef';
 import {setCounterValue} from '../../redux/slices/counterSlice';
 
 export default DisplayScreen = () => {
@@ -15,7 +14,7 @@ export default DisplayScreen = () => {
 
   const handleResetPress = () => {
     dispatch(setCounterValue(0));
-    useNavigationRef.goBack();
+    setShowData(false);
   };
 
   const handleRetrievePress = () => {
@@ -37,7 +36,7 @@ export default DisplayScreen = () => {
                 styles.text,
                 {
                   fontWeight: Font.weight.semibold,
-                  color: Colors.actionBarIcons,
+                  color: Colors.operationBackground,
                 },
               ]}>
               'Retrieve'
@@ -49,7 +48,7 @@ export default DisplayScreen = () => {
       {/* Reset - Retrieve */}
       <View style={styles.actionsContainer}>
         <ButtonsSection
-          leftTitle="Reset"
+          leftTitle="Redux Reset"
           rightTitle="Retrieve"
           onResetPress={handleResetPress}
           onSubmitPress={handleRetrievePress}

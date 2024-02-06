@@ -9,14 +9,14 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   text: {
-    fontSize: Font.title.size.S,
+    fontSize: Font.text.size.S,
     fontWeight: Font.weight.regular,
-    color: Colors.title,
+    color: Colors.text,
     marginEnd: 20,
   },
   featherIcon: {
     fontSize: 26,
     paddingRight: 15,
-    color: Colors.title,
+    color: Colors.text,
   },
 });

@@ -38,7 +38,7 @@ export default InputScreen = () => {
     <View style={styles.mainContainer}>
       <StatusBar
         backgroundColor={styles.mainContainer.backgroundColor}
-        barStyle="light-content"
+        barStyle="dark-content"
       />
       {/* Increment - Decrement */}
       <View style={styles.card}>
@@ -55,7 +55,7 @@ export default InputScreen = () => {
         {/* Reset - Submit */}
         <View style={styles.actionsContainer}>
           <ButtonsSection
-            leftTitle="Reset"
+            leftTitle="Local Reset"
             rightTitle="Submit"
             onResetPress={handleResetPress}
             onSubmitPress={handleSubmitPress}

@@ -10,16 +10,15 @@ export const styles = StyleSheet.create({
   textContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.actionBarIcons,
+    backgroundColor: Colors.operationBackground,
     borderRadius: 24,
-    weight: 80,
     height: 100,
     padding: 12,
   },
   text: {
-    fontSize: Font.title.size.XXL,
+    fontSize: Font.text.size.L,
     fontWeight: Font.weight.regular,
-    color: Colors.gris1,
+    color: Colors.operationText,
     marginHorizontal: 12,
   },
 });

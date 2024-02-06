@@ -5,8 +5,8 @@ import {useNavigationRef} from '../utils/hooks/useNavigationRef';
 import {Platform} from 'react-native';
 import Colors from '../utils/theme/Colors';
 import BackButton from '../components/common/buttons/backButton/BackButton';
-import InputScreen from '../screens/home/InputScreen';
-import DisplayScreen from '../screens/details/DisplayScreen';
+import InputScreen from '../screens/input/InputScreen';
+import DisplayScreen from '../screens/display/DisplayScreen';
 
 export default Router = () => {
   const Stack = createNativeStackNavigator();
@@ -25,6 +25,7 @@ export default Router = () => {
             headerStyle: {
               backgroundColor: Colors.background,
             },
+            headerTintColor: Colors.text,
             headerShadowVisible: false,
           }}
         />

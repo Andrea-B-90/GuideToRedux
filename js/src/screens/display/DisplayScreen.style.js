@@ -3,33 +3,36 @@ import Font from '../../utils/theme/Font';
 import Colors from '../../utils/theme/Colors';
 
 export const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
     alignItems: 'center',
     backgroundColor: Colors.background,
     padding: 16,
   },
   card: {
-    minWidth: 300,
-    minHeight: 300,
-    backgroundColor: Colors.cardColor,
+    alignItems: 'center',
+    width: 300,
+    height: 300,
+    backgroundColor: Colors.card,
     borderRadius: 20,
     marginVertical: 20,
     paddingVertical: 30,
   },
   text: {
-    alignSelf: 'center',
-    fontSize: Font.title.size.XXXL,
+    fontSize: Font.text.size.M,
     fontWeight: Font.weight.regular,
-    color: Colors.title,
-    marginTop: 20,
+    color: Colors.text,
+    margin: 20,
+    textAlign: 'center',
   },
-  footerContainer: {
-    flex: 1,
-    justifyContent: 'space-between',
+  dataValue: {
+    fontSize: Font.text.size.XL,
+    fontWeight: Font.weight.bold,
+    color: Colors.text,
+    marginVertical: 20,
   },
   actionsContainer: {
-    minWidth: 300,
+    minWidth: 360,
     minHeight: 50,
     marginVertical: 20,
   },
