@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StatusBar} from 'react-native';
+import {View, Text, StatusBar, ScrollView} from 'react-native';
 import {navigate} from '../../utils/hooks/useNavigationRef';
 import {styles} from './InputScreen.style';
 import ActionButton from '../../components/common/buttons/actionButton/ActionButton';
@@ -35,37 +35,39 @@ export default InputScreen = () => {
   };
 
   return (
-    <View style={styles.mainContainer}>
-      <StatusBar
-        backgroundColor={styles.mainContainer.backgroundColor}
-        barStyle="dark-content"
-      />
-      {/* Increment - Decrement */}
-      <View style={styles.card}>
-        <Text style={styles.text}>{value}</Text>
-        <ButtonsSection
-          type="operation"
-          leftTitle="-"
-          rightTitle="+"
-          onResetPress={decrementValue}
-          onSubmitPress={incrementValue}
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      <View style={styles.mainContainer}>
+        <StatusBar
+          backgroundColor={styles.mainContainer.backgroundColor}
+          barStyle="dark-content"
         />
-      </View>
-      <View style={styles.footerContainer}>
-        {/* Reset - Submit */}
-        <View style={styles.actionsContainer}>
+        {/* Increment - Decrement */}
+        <View style={styles.card}>
+          <Text style={styles.text}>{value}</Text>
           <ButtonsSection
-            leftTitle="Local Reset"
-            rightTitle="Submit"
-            onResetPress={handleResetPress}
-            onSubmitPress={handleSubmitPress}
+            type="operation"
+            leftTitle="-"
+            rightTitle="+"
+            onResetPress={decrementValue}
+            onSubmitPress={incrementValue}
           />
         </View>
-        {/* Next */}
-        <View style={styles.actionsContainer}>
-          <ActionButton title="Next" onPress={handleNextPress} />
+        <View style={styles.footerContainer}>
+          {/* Reset - Submit */}
+          <View style={styles.actionsContainer}>
+            <ButtonsSection
+              leftTitle="Local Reset"
+              rightTitle="Submit"
+              onResetPress={handleResetPress}
+              onSubmitPress={handleSubmitPress}
+            />
+          </View>
+          {/* Next */}
+          <View style={styles.actionsContainer}>
+            <ActionButton title="Next" onPress={handleNextPress} />
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };

@@ -1,7 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
+  counterValue: 0,
+  factorialValue: 1,
 };
 
 const counterSlice = createSlice({
@@ -9,10 +10,19 @@ const counterSlice = createSlice({
   initialState,
   reducers: {
     setCounterValue: (state, action) => {
-      state.value = action.payload;
+      state.counterValue = action.payload;
+    },
+    calculateFactorial: state => {
+      // Calculate factorial
+      let fact = 1;
+      for (let i = 1; i <= state.counterValue; i++) {
+        fact *= i;
+      }
+      // Update factorial state value
+      state.factorialValue = fact;
     },
   },
 });
 
-export const {setCounterValue} = counterSlice.actions;
+export const {setCounterValue, calculateFactorial} = counterSlice.actions;
 export default counterSlice.reducer;
