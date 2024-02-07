@@ -8,17 +8,22 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setCounterValue} from '../../redux/slices/counterSlice';
 
 export default DisplayScreen = () => {
+  const defaultString = 'Press Retrieve to get the counter value.';
+  const [value, setValue] = useState(defaultString);
   const [showData, setShowData] = useState(false);
+
   const counter = useSelector(state => state.counter.value);
   const dispatch = useDispatch();
 
-  const handleResetPress = () => {
-    dispatch(setCounterValue(0));
-    setShowData(false);
+  const handleRetrievePress = () => {
+    setValue(counter);
+    setShowData(true);
   };
 
-  const handleRetrievePress = () => {
-    setShowData(true);
+  const handleResetPress = () => {
+    setValue(defaultString);
+    setShowData(false);
+    dispatch(setCounterValue(0));
   };
 
   return (
@@ -27,7 +32,7 @@ export default DisplayScreen = () => {
       <View style={styles.card}>
         <Text style={styles.text}>Counter value:</Text>
         {showData === true ? (
-          <Text style={styles.dataValue}>{counter}</Text>
+          <Text style={styles.dataValue}>{value}</Text>
         ) : (
           <Text style={styles.text}>
             Press{' '}
